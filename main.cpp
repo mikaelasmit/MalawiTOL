@@ -39,6 +39,7 @@ using namespace std;
 
 //// --- 1. Choose country --- ////
 int country=3;                  // 1=KENYA      2=ZIMBABWE      3=MALAWI      4=KENYA - UG
+// REMEMBER - when changing file location or country, update scheme!! Go on Product -> Scheme -> Edit Scheme
 
 //// --- 2. Update file paths --- ////
 string InputFileDirectory="/Users/mc1405/Dropbox/Projects - ongoing/Malawi Project/Africa Model - Backbone/Malawi Model/MalawiTLO";
@@ -124,8 +125,6 @@ extern double MortAdj;
 
 
 
-
-
 int main(){
     
     srand(time(NULL));														 // Random Number generator using PC time
@@ -141,17 +140,17 @@ int main(){
     
     cout << "Section 2 - We are loading the arrays.  " << endl;
     // Load HIV Arrays
-    loadCD4StartArray();
-    loadCD4ProgArray();
-    loadCD4DeathArray();
-    loadCD4ARTArray();
+    //loadCD4StartArray();
+    //loadCD4ProgArray();
+    //loadCD4DeathArray();
+    //loadCD4ARTArray();
     
     // Load ART Arrays
-    loadARTKidsArray();
+    /*loadARTKidsArray();
     loadARTWomenArray();
     loadARTMenArray();
     loadARTMen_sumArray();
-    loadARTWomen_sumArray();
+    loadARTWomen_sumArray();*/
     
     // Load Demographic Arrays
     loadAgeDistribution();
@@ -164,11 +163,11 @@ int main(){
     loadBirthArray();
     loadDeathArray_Women();
     loadDeathArray_Men();
-    loadHIVArray_Women();
-    loadHIVArray_Men();
+    //loadHIVArray_Women();
+    //loadHIVArray_Men();
     loadNCDArray();
     loadCancerArray();
-    loadHPVarray();
+    //loadHPVarray();
     
     cout << "Section 3 - All arrays and country-specific items were loaded successfully.  " << endl;
     
@@ -204,11 +203,11 @@ int main(){
         (MyArrayOfPointersToPeople[i])->GenderDistribution();				// --- Assign Sex- ---
         (MyArrayOfPointersToPeople[i])->GetMyDoB();							// --- Assign DoB/Age ---
         (MyArrayOfPointersToPeople[i])->GetDateOfDeath();					// --- Assign date of death ---
-        (MyArrayOfPointersToPeople[i])->GetMyDateOfHPVInfection();            // --- Assign date of HPV infection ---
+       // (MyArrayOfPointersToPeople[i])->GetMyDateOfHPVInfection();            // --- Assign date of HPV infection ---
         if (MyArrayOfPointersToPeople[i]->Sex == 2 && MyArrayOfPointersToPeople[i]->Age<50 && MyArrayOfPointersToPeople[i]->AgeAtDeath>=15) {(MyArrayOfPointersToPeople[i])->GetDateOfBaby();}              // --- Assign Birth of all Children- ---
         (MyArrayOfPointersToPeople[i])->GetMyDateNCD();                     // --- Get date of NCDs ---
         (MyArrayOfPointersToPeople[i])->GetMyDateCancers();                     // --- Get date of NCDs ---
-        (MyArrayOfPointersToPeople[i])->GetMyDateOfHIVInfection();           // ---Get date of HIV infection ---
+        //(MyArrayOfPointersToPeople[i])->GetMyDateOfHIVInfection();           // ---Get date of HIV infection ---
     }
     
     cout << "Section 5 - We've finished creating a population.  " << endl;
@@ -262,7 +261,7 @@ int main(){
     
 
      for (int i=0; i<total_population; i++) {								// Note: If adding more variables to be output, need to adapt the %x
-         fprintf(ProjectZim,"%d, %d, %f, %f, %d, %d, %f, %d, %f, %d, %d, %f, %f, %f, %f, %f, %d, %f, %f, %f, %f, %f, %f, %f, %d, %f, %f, %f, %f, %f, %f, %f, %f, %d, %f, %f, %d, %f, %f, %f, %f, %f, %d, %d, %d, %d, %d, %f, %f, %f, %f, %f, %d, %d, %d, %d, %d, %f, %f, %f, %f, %f, %f, %d, %d, %f, %f, %f, %f \n",
+         fprintf(ProjectZim,"%d, %d, %f, %f, %d, %d, %f, %f, %f, %f, %f, %f, %f,%d, %f, %f, %f, %f, %f, %f, %f, %f, %d, %f, %f \n",
                  MyArrayOfPointersToPeople[i]->PersonID,
                  MyArrayOfPointersToPeople[i]->Sex,
                  MyArrayOfPointersToPeople[i]->DoB,
@@ -271,22 +270,22 @@ int main(){
                  MyArrayOfPointersToPeople[i]->DatesBirth.size(),
                  MyArrayOfPointersToPeople[i]->DateOfDeath,
                  MyArrayOfPointersToPeople[i]->AgeAtDeath,
-                 MyArrayOfPointersToPeople[i]->HIV,
-                 MyArrayOfPointersToPeople[i]->CD4_cat,                          // Number 10
-                 MyArrayOfPointersToPeople[i]->ART,
+                 //MyArrayOfPointersToPeople[i]->HIV,
+                 //MyArrayOfPointersToPeople[i]->CD4_cat,                          // Number 10
+                 //MyArrayOfPointersToPeople[i]->ART,
                  MyArrayOfPointersToPeople[i]->HT,
                  MyArrayOfPointersToPeople[i]->Depression,
                  MyArrayOfPointersToPeople[i]->Asthma,
                  MyArrayOfPointersToPeople[i]->Stroke,                           // Number 15
                  MyArrayOfPointersToPeople[i]->Diabetes,
-                 MyArrayOfPointersToPeople[i]->CD4_cat_ARTstart,
-                 MyArrayOfPointersToPeople[i]->CD4_change.at(0),
-                 MyArrayOfPointersToPeople[i]->CD4_change.at(1),
-                 MyArrayOfPointersToPeople[i]->CD4_change.at(2),                 // Number 20
-                 MyArrayOfPointersToPeople[i]->CD4_change.at(3),
-                 MyArrayOfPointersToPeople[i]->CD4_change.at(4),
-                 MyArrayOfPointersToPeople[i]->CD4_change.at(5),
-                 MyArrayOfPointersToPeople[i]->CD4_change.at(6),
+                 //MyArrayOfPointersToPeople[i]->CD4_cat_ARTstart,
+                 //MyArrayOfPointersToPeople[i]->CD4_change.at(0),
+                 //MyArrayOfPointersToPeople[i]->CD4_change.at(1),
+                 //MyArrayOfPointersToPeople[i]->CD4_change.at(2),                 // Number 20
+                 //MyArrayOfPointersToPeople[i]->CD4_change.at(3),
+                 //MyArrayOfPointersToPeople[i]->CD4_change.at(4),
+                 //MyArrayOfPointersToPeople[i]->CD4_change.at(5),
+                 //MyArrayOfPointersToPeople[i]->CD4_change.at(6),
                  MyArrayOfPointersToPeople[i]->CauseOfDeath,                     // Number 25
                  MyArrayOfPointersToPeople[i]->CKD,
                  MyArrayOfPointersToPeople[i]->Breast,
@@ -298,8 +297,8 @@ int main(){
                  MyArrayOfPointersToPeople[i]->OtherCan,
                  MyArrayOfPointersToPeople[i]->Stroke_status,             // Check if used and, if not, remove
                  MyArrayOfPointersToPeople[i]->MI,                               // Number 35
-                 MyArrayOfPointersToPeople[i]->HC,
-                 MyArrayOfPointersToPeople[i]->HPVcount,
+                 MyArrayOfPointersToPeople[i]->HC
+                 /*MyArrayOfPointersToPeople[i]->HPVcount,
                  MyArrayOfPointersToPeople[i]->HPV[0],
                  MyArrayOfPointersToPeople[i]->HPV[1],
                  MyArrayOfPointersToPeople[i]->HPV[2],                               // Number 40
@@ -331,7 +330,7 @@ int main(){
                  MyArrayOfPointersToPeople[i]->HPVvaccination_date,
                  MyArrayOfPointersToPeople[i]->HPV_DateOfCIS,
                  MyArrayOfPointersToPeople[i]->CVD_HT_Treat_Date,
-                 MyArrayOfPointersToPeople[i]->CVD_HC_Treat_Date
+                 MyArrayOfPointersToPeople[i]->CVD_HC_Treat_Date*/
                  );}
     fclose(ProjectZim);
     

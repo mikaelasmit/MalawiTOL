@@ -9,7 +9,7 @@
 ///////////////////////////////////////////////////////////
 
 
-#include <stdio.h>
+/*#include <stdio.h>
 #include "person.h"
 
 using namespace std;
@@ -27,3 +27,4 @@ void EventStartIntervention(person *MyPointerToPerson);        // This function 
 
     /// --- CVD functions
     void EventCVDPrevIntervention(person *MyPointerToPerson);       // Intervention for CVD (HT and HC)
+*/

@@ -626,7 +626,7 @@ void loadNrChildrenProb()
     
     for (int i=0; i<col; i++){
         NrChildrenProb[i]=data[i];
-        //cout << "I: " << i << " I: " << i << endl;
+        //cout << "I: " << i << " I in data: " << data[i] << endl;
         //cout << "ArrayMin " << NrChildrenProb[i] << endl;
     }
     E(cout<< "The NrChildrenProb Parameter has been loaded" << endl;)

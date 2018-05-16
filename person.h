@@ -37,7 +37,7 @@ public:
     int Alive;
     int AgeAtDeath;
     
-    double HIV;                                     // -- Variables related to HIV --
+    /*double HIV;                                     // -- Variables related to HIV --
     int CD4_cat_start;
     int CD4_cat_ARTstart;
     int CD4_cat;
@@ -71,7 +71,7 @@ public:
     int CVD_Screening_Count=0;
     int CVD_Treat_Outcome=0;
     double CVD_HT_Treat_Date=-999;
-    double CVD_HC_Treat_Date=-999;
+    double CVD_HC_Treat_Date=-999;*/
 
     
     double HT;                                      // -- Variables related to NCDs --

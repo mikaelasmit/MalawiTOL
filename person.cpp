@@ -43,9 +43,9 @@ extern int maxAgeBirth;
 extern int      nr_NCDs;                    // NCD parameters
 extern int      nr_Cancers;
 extern double   MortAdj;                    // Mortality parameters
-extern int age_atrisk_hpv;
-extern int max_age_atrisk_hpv;
-extern double HPV_Array_buffer;
+//extern int age_atrisk_hpv;
+//extern int max_age_atrisk_hpv;
+//extern double HPV_Array_buffer;
 
 //// --- POINTERS TO EXTERNAL ARRAYS --- ////
 extern int*     ArrayMin;
@@ -56,15 +56,15 @@ extern double** BirthArray;
 extern double** DeathArray_Women;
 extern double** Age1950Array;
 extern double*  NrChildrenProb;
-extern double** HIVArray_Women;
-extern double** HIVArray_Men;
+//extern double** HIVArray_Women;
+//extern double** HIVArray_Men;
 extern double** NCDArray;
 extern double** CancerArray;
-extern double** HPVarray;
+//extern double** HPVarray;
 
 
 //// --- Important Internal informtaion --- ////
-vector <float> HIVReservoir(0);
+//vector <float> HIVReservoir(0);
 
 int RandomMinMax(int min, int max){							// Provide function for random number generator between min and max number
     return rand()%(max-min+1)+min;}							// !!!!Note: if min=0 and max=4 it will generate 0,1,2,3,4
@@ -89,7 +89,7 @@ person::person()											// First 'person' class second constructor/variable a
     AgeAtDeath=-999;
     Alive=-999;
     
-    HIV=-999;                                               // --- Variables related to HIV-infection ---
+    /*HIV=-999;                                               // --- Variables related to HIV-infection ---
     CD4_cat_start=-999;                                     // CD4 at HIV infection
     CD4_cat_ARTstart=-999;
     CD4_cat=-999;											// Where 0=>500, 1=350-500, 2=250-350, 3=200-250, 4=100-200, 5=50-100, and 6=<50
@@ -119,7 +119,7 @@ person::person()											// First 'person' class second constructor/variable a
     CVD_HC_Treat_Date=0;
     
     HPVvaccination_status=0;
-    HPVvaccination_date=-999;
+    HPVvaccination_date=-999;*/
     
     HT=-999;                                                // --- Variables related to NCDs ---
     HC=-999;
@@ -199,7 +199,7 @@ void person::GetMyDoB(){
     
     E(cout << "We finished assigning DoB!" << endl;)
     
-        int p=PersonID-1;
+        /*int p=PersonID-1;
         double TimeOfScreen = 0;
         if (DoB<=2000) {TimeOfScreen = 2018;}
         if (DoB>2000) {TimeOfScreen = DoB+18;}
@@ -210,7 +210,7 @@ void person::GetMyDoB(){
         CVD_Screen_Date->p_fun = &EventCVDPrevIntervention;
         CVD_Screen_Date->person_ID = MyArrayOfPointersToPeople[p];
         p_PQ->push(CVD_Screen_Date);
-//    cout << "DoB " << DoB << "time " << TimeOfScreen << endl;
+//    cout << "DoB " << DoB << "time " << TimeOfScreen << endl;*/
 }
 
 // --- Get Dates of all my future babies ---
@@ -371,7 +371,7 @@ void person::GetMyDoBNewEntry(){							// --- Assign Age for New Entry ---
     Age=0;													// Set all new entries as 'newborns'
     DoB=*p_GT;
     
-    int p=PersonID-1;
+    /*int p=PersonID-1;
     double TimeOfScreen = 0;
     if (DoB<=2000) {TimeOfScreen = 2018;}
     if (DoB>2000) {TimeOfScreen = DoB+18;}
@@ -382,13 +382,13 @@ void person::GetMyDoBNewEntry(){							// --- Assign Age for New Entry ---
     CVD_Screen_Date->p_fun = &EventCVDPrevIntervention;
     CVD_Screen_Date->person_ID = MyArrayOfPointersToPeople[p];
     p_PQ->push(CVD_Screen_Date);
-//    cout << "DoB " << DoB << "time " << TimeOfScreen << endl;
+//    cout << "DoB " << DoB << "time " << TimeOfScreen << endl;*/
     
 };
 
 
 //// --- FUNCTION TO ASSIGN HPV --- ////
-void person::GetMyDateOfHPVInfection(){
+/*void person::GetMyDateOfHPVInfection(){
     
     E(cout << endl << endl << "We're assigning HPV infection" << endl);
     
@@ -502,7 +502,7 @@ void person::GetMyDateOfHIVInfection(){
         cout << "Size reservoir: " << HIVReservoir.size() << endl << endl;
     })
     
-}
+}*/
 
 
 

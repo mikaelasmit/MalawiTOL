@@ -5,7 +5,7 @@
 //    These event are added to the EventQ.                  //
 //////////////////////////////////////////////////////////////
 
-#include <stdio.h>
+/*#include <stdio.h>
 #include "person.h"
 
 using namespace std;

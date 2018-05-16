@@ -11,7 +11,7 @@
 ///////////////////////////////////////////////////////////
 
 
-#include <stdio.h>
+/*#include <stdio.h>
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
@@ -745,7 +745,7 @@ void EventMy_CIS_Referral(person *MyPointerToPerson){
 }
 
 void EventMy_ICC_Referral(person *MyPointerToPerson){
-}
+}*/
 
 
 

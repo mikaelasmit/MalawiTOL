@@ -87,7 +87,7 @@ void EventTellNewYear(person *MyPointerToPerson){
     cout << "A new year has started, it is now " << *p_GT << endl;      // Tells us a new year has started
     
     // Lets set the first people on ART
-    if (*p_GT>=ART_start_yr){
+    /*if (*p_GT>=ART_start_yr){
         
         // Add people on ART until we hit our aim
         while (count_ARTKids<ARTKids[ART_index] || ARTbuffer*count_ARTMen_sum<ARTMen_sum[ART_index] || ARTbuffer*count_ARTWomen_sum<ARTWomen_sum[ART_index]){
@@ -211,7 +211,7 @@ void EventTellNewYear(person *MyPointerToPerson){
         // Lets update the ART index
         ART_index++;
         if (ART_index>12){ART_index=12;}
-    }
+    }*/
     
     // Lets get the pointer to the right year range
     if (*p_GT<1955){*p_PY = 0; };
@@ -261,15 +261,15 @@ void EventBirth(person *MyPointerToPerson){
         (MyArrayOfPointersToPeople[total_population-1])->GetDateOfBaby();
         (MyArrayOfPointersToPeople[total_population-1])->GetMyDateNCD();
         (MyArrayOfPointersToPeople[total_population-1])->GetMyDateCancers();
-        (MyArrayOfPointersToPeople[total_population-1])->GetMyDateOfHPVInfection();
-        (MyArrayOfPointersToPeople[total_population-1])->GetMyDateOfHIVInfection();
+        //(MyArrayOfPointersToPeople[total_population-1])->GetMyDateOfHPVInfection();
+        //(MyArrayOfPointersToPeople[total_population-1])->GetMyDateOfHIVInfection();
         (MyArrayOfPointersToPeople[total_population-1])->MotherID=MyPointerToPerson->PersonID;			// Give child their mothers ID
         
         MyPointerToPerson->ChildIDVector.push_back((MyArrayOfPointersToPeople[total_population-1]));	// Give mothers their child's ID
         
         
         // This code is for the HPV vaccination Intervention
-        if (*p_GT>=(yearintervention_start-age_HPVvaccination) && int_HPVvaccination==1 && MyArrayOfPointersToPeople[total_population-1]->Sex==2)
+        /*if (*p_GT>=(yearintervention_start-age_HPVvaccination) && int_HPVvaccination==1 && MyArrayOfPointersToPeople[total_population-1]->Sex==2)
         {
             event * HPV_VaccinationEvent = new event;
             Events.push_back(HPV_VaccinationEvent);
@@ -277,7 +277,7 @@ void EventBirth(person *MyPointerToPerson){
             HPV_VaccinationEvent->p_fun = &EventMyHPVVaccination;
             HPV_VaccinationEvent->person_ID = MyArrayOfPointersToPeople[total_population-1];
             p_PQ->push(HPV_VaccinationEvent);
-        }
+        }*/
         
         E(cout << "We have finished giving birth " << endl;)
     }
@@ -300,7 +300,7 @@ void EventMyDeathDate(person *MyPointerToPerson){
         
         // Lets also update ART information as people die
         // 1. If they are not on ART
-        if (MyPointerToPerson->HIV>0 && MyPointerToPerson->HIV<*p_GT && MyPointerToPerson->ART==-999){
+        /*if (MyPointerToPerson->HIV>0 && MyPointerToPerson->HIV<*p_GT && MyPointerToPerson->ART==-999){
             
             // First we need to update age
             MyPointerToPerson->Age=(*p_GT - MyPointerToPerson->DoB);  // First we update age
@@ -333,7 +333,7 @@ void EventMyDeathDate(person *MyPointerToPerson){
                 count_ARTAdult_Women[MyPointerToPerson->CD4_cat_start]=count_ARTAdult_Women[MyPointerToPerson->CD4_cat_start]-1;
                 count_ARTWomen_sum=count_ARTWomen_sum-1;
             }
-        }
+        }*/
     }
     
     E(cout << "Person " << MyPointerToPerson->PersonID << " just died. Their life status now is: " << MyPointerToPerson->Alive << endl;)
